@@ -15,7 +15,8 @@
 
     const getAllAttr = function(attr) { // 获取对应属性的值
         const attrs = []
-        document.querySelectorAll('[' + attr + ']').forEach((dom) => {
+        const allDoms = document.querySelectorAll('[' + attr + ']')
+        allDoms.forEach((dom) => {
             const attrValue = dom.getAttribute(attr)
             attrs.push(concatUrl(attrValue, domain))
         })
@@ -28,8 +29,7 @@
         allDoms.forEach((element) => {
             let url = window.getComputedStyle(element)['background-image'].match(/url\("(.+)"\)$/)
             if (url && url[1]) {
-                const bgImg = url[1]
-                allBgImageUrl.push(concatUrl(bgImg, domain))
+                allBgImageUrl.push(concatUrl(url[1], domain))
             }
         })
         return allBgImageUrl
