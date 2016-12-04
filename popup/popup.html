@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../lib/vue.min.js"></script>
+    <script src="popup.js"></script>
+    <link rel="stylesheet" href="popup.css">
+    <title>选项</title>
+</head>
+
+<body>
+    <div id="app" class="app">
+        <!--图片筛选区-->
+        <div class="select-show-area">
+            <label>
+                <input type="checkbox" v-model="isShowAttr">
+                显示自定义图片                
+            </label>
+            <label>
+                <input type="checkbox" v-model="isShowImg">
+                显示图片                
+            </label>
+            <label>
+                <input type="checkbox" v-model="isShowBg">
+                显示背景图片                
+            </label>
+        </div>
+        <!--自定义属性-->
+        <div class="define-attr">
+            <input @keyup="getAttrImg" type="text" placeholder="自定义抓取图片属性，多个属性以英文,隔开" v-model="attr">
+        </div>
+        <!--筛选长和宽-->
+        <div class="filter">
+            <label class="filter-item">
+                长>:
+                <input type="number" v-model="imgWidth">                
+            </label>
+            <label class="filter-item">
+                宽>:
+                <input type="number" v-model="imgHeight">                
+            </label>
+        </div>
+        <!--自定义属性图片-->
+        <div class="container-title" v-if="imgs.attrImg.length > 0 && isShowAttr">
+            <h2>自定义图片</h2>
+        </div>
+        <ul class="img-container" v-if="imgs.attrImg.length > 0 && isShowAttr">
+            <li class="img-list" v-for="img in imgs.attrImg" v-if="img.width > imgWidth && img.height > imgHeight">
+                <div class="download-button" @click="downLoad(img.src)">下载</div>
+                <div class="img-info">
+                    <span>{{img.width}} X {{img.height}}</span>
+                </div>
+                <div class="img-item">
+                    <img src="{{img.src}}" />
+                </div>
+            </li>
+        </ul>
+        <!--img图片-->
+        <div class="container-title" v-if="imgs.img.length > 0 && isShowImg">
+            <h2>图片</h2>
+        </div>
+        <ul class="img-container" v-if="imgs.img.length > 0 && isShowImg">
+            <li class="img-list" v-for="img in imgs.img" v-if="img.width > imgWidth && img.height > imgHeight">
+                <div class="download-button" @click="downLoad(img.src)">下载</div>
+                <div class="img-info">
+                    <span>{{img.width}} X {{img.height}}</span>
+                </div>
+                <div class="img-item">
+                    <img src="{{img.src}}" />
+                </div>
+            </li>
+        </ul>
+        <!--背景图片-->
+        <div class="container-title" v-if="imgs.bgImg.length > 0 && isShowBg">
+            <h2>背景图片</h2>
+        </div>
+        <ul class="img-container" v-if="imgs.bgImg.length > 0 && isShowBg">
+            <li class="img-list" v-for="img in imgs.bgImg" v-if="img.width > imgWidth && img.height > imgHeight">
+                <div class="download-button" @click="downLoad(img.src)">下载</div>
+                <div class="img-info">
+                    <span>{{img.width}} X {{img.height}}</span>
+                </div>
+                <div class="img-item">
+                    <img src="{{img.src}}" />
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

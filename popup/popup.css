@@ -1,0 +1,88 @@
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.app {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.define-attr {
+    margin-top: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: 20px;
+}
+
+.define-attr input {
+    width: 100%;
+}
+
+.img-container {
+    width: 100%;
+}
+
+.img-list {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    line-height: 200px;
+    text-align: center;
+}
+
+.img-item {
+    width: 150px;
+    height: 150px;
+    overflow: scroll;
+}
+
+.download-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.img-item::nth-child(4n) {
+    margin-right: 20px;
+}
+
+.img-item img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.img-info {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    line-height: 1;
+}
+
+.filter {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.filter-item {
+    flex: 1;
+    margin-left: 20px;
+}
