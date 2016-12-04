@@ -1,7 +1,6 @@
 (() => {
     const domain = location.protocol + '//' + location.host
-    const imageRegex = /(?:([^:\/?#]+):)?(?:\/\/([^\/?#]*))?([^?#]*\.(?:jpe?g|gif|png))(?:\?([^#]*))?(?:#(.*))?/i
-    const initAttr = ['data-src']
+    const initAttr = ['data-src'] // 默认配置属性
     let configAttr = ['data-src'] // 配置的属性
 
     const getConfigAttrUrl = function() { //  获取所有配置属性的值
