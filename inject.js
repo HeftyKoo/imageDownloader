@@ -55,14 +55,14 @@
         }
         if (action === 'all') {
             sendResponse({
-                attrImg: getConfigAttrUrl(),
-                bgImg: getBackgroundImage(),
-                img: getImgUrl()
+                attrImg: [...new Set(getConfigAttrUrl())],
+                bgImg: [...new Set(getBackgroundImage())],
+                img: [...new Set(getImgUrl())]
             })
         }
         if (action === 'attr') {
             sendResponse({
-                attrImg: getConfigAttrUrl(),
+                attrImg: [...new Set(getConfigAttrUrl())],
             })
         }
     });
